@@ -4,7 +4,7 @@
 EasyLectures is a tool that automatically transcribes lecture recordings and generates structured markdown notes using WhisperX and LLM technologies.
 
 ```ascii
- ______                 __              __                      
+    ______                 __              __                      
    / ____/___ ________  __/ /   ___  _____/ /___  __________  _____
   / __/ / __ `/ ___/ / / / /   / _ \/ ___/ __/ / / / ___/ _ \/ ___/
  / /___/ /_/ (__  ) /_/ / /___/  __/ /__/ /_/ /_/ / /  /  __(__  ) 
