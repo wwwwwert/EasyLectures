@@ -27,6 +27,7 @@ EasyLectures is a tool that automatically transcribes lecture recordings and gen
 - Python 3.x
 - CUDA-capable GPU (for WhisperX)
 - Fireworks API token (set as environment variable `FIREWORKS_TOKEN`)
+- HuggingFace API token (set as environment variable `HUGGINGFACE_TOKEN`)
 
 ## Installation
 
