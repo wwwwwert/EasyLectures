@@ -33,7 +33,7 @@ EasyLectures is a tool that automatically transcribes lecture recordings and gen
 1. Clone the repository
 2. Install the required dependencies:
 ```bash
-pip install whisperx pandas torch requests ffmpeg-python tqdm
+pip install -r requirements.txt
 ```
 
 ## Usage
