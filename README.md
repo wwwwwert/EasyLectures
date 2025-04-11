@@ -90,3 +90,4 @@ The generated notes are formatted for Obsidian with:
 ## Environment Variables
 
 - `FIREWORKS_TOKEN`: Your Fireworks API authentication token
+- `HUGGINGFACE_TOKEN`: Your HuggingFace Read token

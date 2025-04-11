@@ -17,6 +17,7 @@ import re
 
 warnings.filterwarnings('ignore')
 
+HUGGINGFACE_TOKEN = os.environ.get('HUGGINGFACE_TOKEN')
 FIREWORKS_TOKEN = os.environ.get('FIREWORKS_TOKEN')
 PROMPT = """У меня была лекция по курсу "{class_title}". Я сделал транскрибацию по её видеозаписи. Пожалуйста сделай подробный конспект этой лекции в формате md для программы Obsidian. 
 Ориентируйся также на следующий формат оформления: 
@@ -95,7 +96,7 @@ def transcribe_audio(audio_file: Path, output_dir: Path, language: str) -> str:
     gc.collect(); torch.cuda.empty_cache(); del model_a
 
     print('Loading diarizer...')
-    diarize_model = whisperx.DiarizationPipeline(use_auth_token='your_token', device=device)
+    diarize_model = whisperx.DiarizationPipeline(use_auth_token=HUGGINGFACE_TOKEN, device=device)
     print()
     print('Diarizing...')
     # add min/max number of speakers if known
