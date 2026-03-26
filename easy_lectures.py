@@ -81,7 +81,7 @@ def transcribe_audio(audio_file: Path, output_dir: Path, language: str) -> str:
 
     audio = whisperx.load_audio(audio_file)
     print()
-    print('Transcribing...')
+    print(f'Transcribing {audio_file.name}...')
     result = model.transcribe(audio, batch_size=batch_size, print_progress=True, language=language, task="transcribe")
     # print(result["segments"]) # before alignment
 
@@ -183,9 +183,16 @@ def main(lecture_path: Path, output_dir: Path, language: str, class_title: str, 
     #     with open(output_path, 'w') as fp:
     #         fp.write(note)
 
+    prompt_dump_path = output_dir / 'prompts'
+    prompt_dump_path.mkdir(exist_ok=True, parents=True)
+
     for mp3_file in mp3_files:
         transcribation = transcribe_audio(mp3_file, output_dir, language)
         if transcribation_only:
+            prompt = PROMPT.format(transcribation=transcribation, class_title=class_title)
+            
+            with open(prompt_dump_path / (mp3_file.stem + '.txt'), 'w') as fp:
+                fp.write(prompt)
             continue
         note = get_brief_note(transcribation, class_title)
         output_path = output_dir / (mp3_file.stem + '.md')
